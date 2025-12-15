@@ -1,0 +1,255 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background Image */
+body {
+    background: url('https://cdn.discordapp.com/attachments/1435638299489337526/1436057252195995800/images_2.jpg?ex=690e3809&is=690ce689&hm=59951666470c6da87933c06e28a8a8f72adcdffb18c726f258454811d4a12a78&') 
+    no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Dark Overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.8);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    background-color: rgba(26, 26, 26, 0.9);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+header h1 {
+    color: #ff0000;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff0000;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #ff0000;
+    text-shadow: 0 0 20px #ff0000;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #eee;
+}
+
+/* Server Info */
+.server-info h3 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.server-info span {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Button Group (Home Page) */
+.button-group {
+    margin-top: 20px;
+}
+
+.button-group .btn,
+.button-group .btn-buy {
+    margin: 10px;
+}
+
+/* Buttons */
+.btn,
+.btn-buy {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: inline-block;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.btn:hover,
+.btn-buy:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 20px #cc0000;
+}
+
+/* Discord Button */
+.btn.discord {
+    background-color: #5865F2;
+    box-shadow: 0 0 10px #5865F2;
+}
+
+.btn.discord:hover {
+    background-color: #4752C4;
+    box-shadow: 0 0 20px #4752C4;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rank Section */
+.rank-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.rank-section h2 {
+    color: #ff0000;
+    margin-bottom: 40px;
+    font-size: 2em;
+    text-shadow: 0 0 15px #ff0000;
+}
+
+.rank-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.rank-card {
+    background-color: rgba(26, 26, 26, 0.9);
+    padding: 25px;
+    border: 2px solid #ff0000;
+    border-radius: 15px;
+    width: 220px;
+    text-align: center;
+    transition: 0.4s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.rank-card:hover {
+    transform: scale(1.08);
+    border-color: #cc0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+.rank-card h3 {
+    color: #ff0000;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.rank-card p {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* ✅ Fix for Buy Now Button (All Ranks Same Size) */
+.rank-card .btn-buy {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    padding: 12px 0;
+}
+
+/* Join Discord Section */
+.join-discord {
+    margin-top: 40px;
+}
+
+/* Crate Key Coming Soon Section */
+.coming-soon {
+    text-align: center;
+    padding: 150px 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.coming-soon h2 {
+    font-size: 2.5em;
+    color: #ff0000;
+    text-shadow: 0 0 20px #ff0000;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+.coming-soon p {
+    font-size: 1.2em;
+    color: #ddd;
+    margin: 10px 0;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+/* Glowing Text Animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 20px #cc0000, 0 0 40px #ff0000;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(26, 26, 26, 0.9);
+    margin-top: 40px;
+    color: #888;
+    backdrop-filter: blur(5px);
+}
