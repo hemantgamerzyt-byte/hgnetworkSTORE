@@ -262,3 +262,22 @@ footer {
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
+
+/* Login Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.login-form input {
+    width: 260px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
