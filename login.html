@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HG NETWORK - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-overlay"></div>
+
+<header>
+    <h1>HG NETWORK</h1>
+</header>
+
+<section class="hero">
+    <img src="https://i.postimg.cc/PqsPMYWb/server-icon.png" class="home-logo">
+
+    <h2>Enter Your Minecraft Username</h2>
+
+    <form id="loginForm" class="login-form">
+        <input 
+            type="text" 
+            id="mcname" 
+            placeholder="Minecraft Username" 
+            required
+        >
+        <button type="submit" class="btn-buy">Login</button>
+    </form>
+
+    <p id="status"></p>
+</section>
+
+<script>
+const webhookURL = "https://discordapp.com/api/webhooks/1450106999550247029/jnBFh5_3s06R0T6JsyObepfx2Tk2TRVj7fLqNdjzvRgoixOSVgWo1CGmayQ_Eb_hKLi0";
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("mcname").value;
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            content: `🟢 New Website Login\nMinecraft Username: **${username}**`
+        })
+    })
+    .then(() => {
+        document.getElementById("status").innerText = "✅ Login successful! Redirecting...";
+
+        // Redirect after 1.5 seconds
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1500);
+    })
+    .catch(() => {
+        document.getElementById("status").innerText = "❌ Error sending username.";
+    });
+});
+</script>
+
+</body>
+</html>
