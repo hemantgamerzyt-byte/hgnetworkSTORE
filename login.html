@@ -50,12 +50,8 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         })
     })
     .then(() => {
-        document.getElementById("status").innerText = "✅ Login successful! Redirecting...";
-
-        // Redirect after 1.5 seconds
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 1500);
+        // ✅ Direct redirect to HOME
+        window.location.href = "index.html";
     })
     .catch(() => {
         document.getElementById("status").innerText = "❌ Error sending username.";
