@@ -1,58 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HG NETWORK - Home</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HG NETWORK - Home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+
+/* Body Background */
+body {
+    background: url('https://cdn.discordapp.com/attachments/1435638299489337526/1436057252195995800/images_2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color:#fff;
+    position: relative;
+    min-height:100vh;
+}
+
+/* Dark Overlay */
+.background-overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(15,15,15,0.85); z-index:-1;
+}
+
+/* Header */
+header {
+    text-align:center; padding:20px; position:sticky; top:0; background:rgba(26,26,26,0.9);
+    z-index:100; backdrop-filter:blur(8px);
+}
+header h1 { color:#ff0000; font-size:2.5em; margin-bottom:10px; text-shadow:0 0 10px #ff0000; }
+nav ul { list-style:none; display:flex; justify-content:center; gap:20px; }
+nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
+nav a:hover, nav a.active { color:#ff0000; }
+
+/* Top Buttons */
+.top-buttons { margin-top:10px; display:flex; justify-content:center; gap:15px; }
+.top-buttons .btn, .top-buttons .btn-buy { padding:10px 25px; border-radius:8px; font-weight:bold; text-decoration:none; transition:0.3s; }
+.top-buttons .btn { background:#5865F2; color:#fff; box-shadow:0 0 10px #5865F2; }
+.top-buttons .btn:hover { background:#4752C4; box-shadow:0 0 20px #4752C4; }
+.top-buttons .btn-buy { background:#ff0000; color:#fff; box-shadow:0 0 10px #ff0000; }
+.top-buttons .btn-buy:hover { background:#cc0000; box-shadow:0 0 20px #cc0000; }
+
+/* Hero */
+.hero { text-align:center; padding:60px 20px; animation:fadeIn 1.5s ease-in-out; }
+.hero h2 { font-size:2.5em; margin-bottom:15px; color:#ff0000; text-shadow:0 0 15px #ff0000; }
+.hero p { font-size:1.2em; margin-bottom:30px; }
+
+/* Server Info */
+.server-info h3 { font-size:1.3em; margin-bottom:25px; }
+.server-info span { color:#ff0000; font-weight:bold; }
+
+/* Minecraft Login Box (MCFlett style) */
+#mcForm {
+    background: rgba(26,26,26,0.9);
+    border:2px solid #ff0000;
+    width:300px;
+    margin:0 auto 50px auto;
+    padding:30px 20px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,0,0,0.6);
+}
+#mcForm h2 { color:#ff0000; margin-bottom:20px; font-size:1.5em; text-align:center; }
+#mcForm input {
+    width:100%; padding:10px; margin-bottom:15px; border-radius:8px;
+    border:1px solid #ff0000; background:rgba(0,0,0,0.5); color:#fff; font-size:1em;
+}
+#mcForm button {
+    width:100%; padding:10px; border:none; border-radius:8px; background:#ff0000; color:#fff; font-weight:bold;
+    font-size:1em; cursor:pointer; transition:0.3s;
+}
+#mcForm button:hover { background:#cc0000; }
+
+/* Status Text */
+#status { margin-top:10px; text-align:center; font-weight:bold; }
+
+/* Logo */
+.home-logo { width:120px; margin-bottom:20px; border-radius:15px; box-shadow:0 0 25px rgba(255,0,0,0.6); }
+
+/* Animations */
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+footer { text-align:center; padding:20px; background:rgba(26,26,26,0.9); color:#888; backdrop-filter:blur(5px); }
+</style>
 </head>
 <body>
-    <div class="background-overlay"></div>
+<div class="background-overlay"></div>
 
-    <header>
-        <h1>HG NETWORK</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="lifesteal.html">LifeSteal</a></li>
-                <li><a href="pvp.html">PvP</a></li>
-            </ul>
-        </nav>
+<header>
+    <h1>HG NETWORK</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="lifesteal.html">LifeSteal</a></li>
+            <li><a href="pvp.html">PvP</a></li>
+        </ul>
+    </nav>
 
-        <!-- ✅ Top Buttons -->
-        <div class="top-buttons">
-            <a href="#" class="btn-buy" onclick="document.getElementById('mcForm').scrollIntoView({behavior:'smooth'});">Login</a>
-            <a href="https://discord.gg/YS5B28JNJQ" target="_blank" class="btn discord">Join Discord</a>
-        </div>
-    </header>
+    <div class="top-buttons">
+        <a href="#mcForm" class="btn-buy">Login</a>
+        <a href="https://discord.gg/YS5B28JNJQ" target="_blank" class="btn">Discord</a>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="https://i.postimg.cc/PqsPMYWb/server-icon.png" alt="HG Network Logo" class="home-logo">
-        <h2>Welcome to HgNetwork Official Store</h2>
-        <p>Experience the best Minecraft adventures — PvP, Lifesteal, BedWars</p>
+<section class="hero">
+    <img src="https://i.postimg.cc/PqsPMYWb/server-icon.png" alt="HG Network Logo" class="home-logo">
+    <h2>Welcome to HgNetwork Official Store</h2>
+    <p>Experience the best Minecraft adventures — PvP, Lifesteal, BedWars</p>
+    <div class="server-info">
+        <h3>Server IP: <span>play.hgnetwork.fun</span></h3>
+    </div>
+</section>
 
-        <div class="server-info">
-            <h3>Server IP: <span>play.hgnetwork.fun</span></h3>
-        </div>
-    </section>
+<!-- Minecraft Login Box -->
+<section id="mcForm">
+    <h2>Enter Your Minecraft Username</h2>
+    <form id="usernameForm">
+        <input type="text" id="mcname" placeholder="Minecraft Username" required>
+        <button type="submit">Login</button>
+    </form>
+    <p id="status"></p>
+</section>
 
-    <!-- ✅ Minecraft Username Form -->
-    <section class="hero" id="mcForm">
-        <h2>Enter Your Minecraft Username</h2>
-        <form id="usernameForm">
-            <input type="text" id="mcname" placeholder="Minecraft Username" required>
-            <button type="submit" class="btn-buy">Submit</button>
-        </form>
-        <p id="status"></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 HG NETWORK. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 HG NETWORK. All rights reserved.</p>
+</footer>
 
 <script>
-const webhookURL = "https://discordapp.com/api/webhooks/1450106999550247029/jnBFh5_3s06R0T6JsyObepfx2Tk2TRVj7fLqNdjzvRgoixOSVgWo1CGmayQ_Eb_hKLi0"; // Discord webhook
+const webhookURL = "PASTE_YOUR_DISCORD_WEBHOOK_HERE";
 
 document.getElementById("usernameForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -60,19 +135,12 @@ document.getElementById("usernameForm").addEventListener("submit", function(e) {
 
     fetch(webhookURL, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            content: `🟢 New Website Login\nMinecraft Username: **${username}**`
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: `🟢 New Website Login\nMinecraft Username: **${username}**` })
     }).then(() => {
         document.getElementById("status").innerText = "✅ Username sent successfully!";
         document.getElementById("mcname").value = "";
-        // Redirect to top of the page after 2 seconds
-        setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 2000);
+        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 2000);
     }).catch(() => {
         document.getElementById("status").innerText = "❌ Error sending username.";
     });
