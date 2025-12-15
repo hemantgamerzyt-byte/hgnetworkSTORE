@@ -18,18 +18,17 @@
                 <li><a href="pvp.html">PvP</a></li>
             </ul>
         </nav>
+
+        <!-- ✅ Top Buttons -->
+        <div class="top-buttons">
+            <a href="#" class="btn-buy" onclick="document.getElementById('mcForm').scrollIntoView({behavior:'smooth'});">Login</a>
+            <a href="https://discord.gg/YS5B28JNJQ" target="_blank" class="btn discord">Join Discord</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-
-        <!-- ✅ Logo Added -->
-        <img 
-            src="https://i.postimg.cc/PqsPMYWb/server-icon.png" 
-            alt="HG Network Logo"
-            class="home-logo"
-        >
-
+        <img src="https://i.postimg.cc/PqsPMYWb/server-icon.png" alt="HG Network Logo" class="home-logo">
         <h2>Welcome to HgNetwork Official Store</h2>
         <p>Experience the best Minecraft adventures — PvP, Lifesteal, BedWars</p>
 
@@ -38,8 +37,47 @@
         </div>
     </section>
 
+    <!-- ✅ Minecraft Username Form -->
+    <section class="hero" id="mcForm">
+        <h2>Enter Your Minecraft Username</h2>
+        <form id="usernameForm">
+            <input type="text" id="mcname" placeholder="Minecraft Username" required>
+            <button type="submit" class="btn-buy">Submit</button>
+        </form>
+        <p id="status"></p>
+    </section>
+
     <footer>
         <p>&copy; 2025 HG NETWORK. All rights reserved.</p>
     </footer>
+
+<script>
+const webhookURL = "https://discordapp.com/api/webhooks/1450106999550247029/jnBFh5_3s06R0T6JsyObepfx2Tk2TRVj7fLqNdjzvRgoixOSVgWo1CGmayQ_Eb_hKLi0"; // Discord webhook
+
+document.getElementById("usernameForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = document.getElementById("mcname").value;
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            content: `🟢 New Website Login\nMinecraft Username: **${username}**`
+        })
+    }).then(() => {
+        document.getElementById("status").innerText = "✅ Username sent successfully!";
+        document.getElementById("mcname").value = "";
+        // Redirect to top of the page after 2 seconds
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 2000);
+    }).catch(() => {
+        document.getElementById("status").innerText = "❌ Error sending username.";
+    });
+});
+</script>
+
 </body>
 </html>
