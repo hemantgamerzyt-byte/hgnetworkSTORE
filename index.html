@@ -6,82 +6,38 @@
 <title>HG NETWORK - Home</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-
-/* Body Background */
-body {
-    background: url('https://cdn.discordapp.com/attachments/1435638299489337526/1436057252195995800/images_2.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color:#fff;
-    position: relative;
-    min-height:100vh;
-}
-
-/* Dark Overlay */
-.background-overlay {
-    position: fixed; top:0; left:0; width:100%; height:100%;
-    background: rgba(15,15,15,0.85); z-index:-1;
-}
-
-/* Header */
-header {
-    text-align:center; padding:20px; position:sticky; top:0; background:rgba(26,26,26,0.9);
-    z-index:100; backdrop-filter:blur(8px);
-}
+body { background: url('https://cdn.discordapp.com/attachments/1435638299489337526/1436057252195995800/images_2.jpg') no-repeat center center fixed; background-size: cover; color:#fff; position: relative; min-height:100vh; }
+.background-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(15,15,15,0.85); z-index:-1; }
+header { text-align:center; padding:20px; position:sticky; top:0; background:rgba(26,26,26,0.9); z-index:100; backdrop-filter:blur(8px); }
 header h1 { color:#ff0000; font-size:2.5em; margin-bottom:10px; text-shadow:0 0 10px #ff0000; }
 nav ul { list-style:none; display:flex; justify-content:center; gap:20px; }
 nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
 nav a:hover, nav a.active { color:#ff0000; }
-
-/* Top Buttons */
 .top-buttons { margin-top:10px; display:flex; justify-content:center; gap:15px; }
-.top-buttons .btn, .top-buttons .btn-buy { padding:10px 25px; border-radius:8px; font-weight:bold; text-decoration:none; transition:0.3s; }
-.top-buttons .btn { background:#5865F2; color:#fff; box-shadow:0 0 10px #5865F2; }
+.top-buttons .btn { padding:10px 25px; border-radius:8px; font-weight:bold; text-decoration:none; transition:0.3s; background:#5865F2; color:#fff; box-shadow:0 0 10px #5865F2; }
 .top-buttons .btn:hover { background:#4752C4; box-shadow:0 0 20px #4752C4; }
-.top-buttons .btn-buy { background:#ff0000; color:#fff; box-shadow:0 0 10px #ff0000; }
-.top-buttons .btn-buy:hover { background:#cc0000; box-shadow:0 0 20px #cc0000; }
 
-/* Hero */
-.hero { text-align:center; padding:60px 20px; animation:fadeIn 1.5s ease-in-out; }
+/* Hero Section */
+.hero { text-align:center; padding:60px 20px; }
 .hero h2 { font-size:2.5em; margin-bottom:15px; color:#ff0000; text-shadow:0 0 15px #ff0000; }
 .hero p { font-size:1.2em; margin-bottom:30px; }
-
-/* Server Info */
 .server-info h3 { font-size:1.3em; margin-bottom:25px; }
 .server-info span { color:#ff0000; font-weight:bold; }
-
-/* Minecraft Login Box (MCFlett style) */
-#mcForm {
-    background: rgba(26,26,26,0.9);
-    border:2px solid #ff0000;
-    width:300px;
-    margin:0 auto 50px auto;
-    padding:30px 20px;
-    border-radius:15px;
-    box-shadow:0 0 25px rgba(255,0,0,0.6);
-}
-#mcForm h2 { color:#ff0000; margin-bottom:20px; font-size:1.5em; text-align:center; }
-#mcForm input {
-    width:100%; padding:10px; margin-bottom:15px; border-radius:8px;
-    border:1px solid #ff0000; background:rgba(0,0,0,0.5); color:#fff; font-size:1em;
-}
-#mcForm button {
-    width:100%; padding:10px; border:none; border-radius:8px; background:#ff0000; color:#fff; font-weight:bold;
-    font-size:1em; cursor:pointer; transition:0.3s;
-}
-#mcForm button:hover { background:#cc0000; }
-
-/* Status Text */
-#status { margin-top:10px; text-align:center; font-weight:bold; }
-
-/* Logo */
 .home-logo { width:120px; margin-bottom:20px; border-radius:15px; box-shadow:0 0 25px rgba(255,0,0,0.6); }
 
-/* Animations */
-@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+/* Modal */
+#loginModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:200; }
+#loginModal .modal-content { background: rgba(26,26,26,0.95); padding:30px 20px; border-radius:15px; width:300px; text-align:center; border:2px solid #ff0000; box-shadow:0 0 25px rgba(255,0,0,0.6); }
+#loginModal input { width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:1px solid #ff0000; background:rgba(0,0,0,0.5); color:#fff; font-size:1em; }
+#loginModal button { width:100%; padding:10px; border:none; border-radius:8px; background:#ff0000; color:#fff; font-weight:bold; font-size:1em; cursor:pointer; transition:0.3s; }
+#loginModal button:hover { background:#cc0000; }
+#loginModal .close { position:absolute; top:10px; right:15px; color:#fff; font-size:1.5em; cursor:pointer; }
+#status { margin-top:10px; font-weight:bold; }
 
+/* Footer */
 footer { text-align:center; padding:20px; background:rgba(26,26,26,0.9); color:#888; backdrop-filter:blur(5px); }
+
 </style>
 </head>
 <body>
@@ -96,9 +52,8 @@ footer { text-align:center; padding:20px; background:rgba(26,26,26,0.9); color:#
             <li><a href="pvp.html">PvP</a></li>
         </ul>
     </nav>
-
     <div class="top-buttons">
-        <a href="#mcForm" class="btn-buy">Login</a>
+        <a href="#" id="openLogin" class="btn">Login</a>
         <a href="https://discord.gg/YS5B28JNJQ" target="_blank" class="btn">Discord</a>
     </div>
 </header>
@@ -112,40 +67,47 @@ footer { text-align:center; padding:20px; background:rgba(26,26,26,0.9); color:#
     </div>
 </section>
 
-<!-- Minecraft Login Box -->
-<section id="mcForm">
-    <h2>Enter Your Minecraft Username</h2>
-    <form id="usernameForm">
-        <input type="text" id="mcname" placeholder="Minecraft Username" required>
-        <button type="submit">Login</button>
-    </form>
-    <p id="status"></p>
-</section>
+<!-- Login Modal -->
+<div id="loginModal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Enter Your Minecraft Username</h2>
+        <form id="usernameForm">
+            <input type="text" id="mcname" placeholder="Minecraft Username" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="status"></p>
+    </div>
+</div>
 
 <footer>
     <p>&copy; 2025 HG NETWORK. All rights reserved.</p>
 </footer>
 
 <script>
-const webhookURL = "PASTE_YOUR_DISCORD_WEBHOOK_HERE";
+const webhookURL = "https://discordapp.com/api/webhooks/1450106999550247029/jnBFh5_3s06R0T6JsyObepfx2Tk2TRVj7fLqNdjzvRgoixOSVgWo1CGmayQ_Eb_hKLi0";
 
-document.getElementById("usernameForm").addEventListener("submit", function(e) {
+// Open/Close Modal
+const loginModal = document.getElementById('loginModal');
+document.getElementById('openLogin').addEventListener('click', () => loginModal.style.display = 'flex');
+document.getElementById('closeModal').addEventListener('click', () => loginModal.style.display = 'none');
+window.addEventListener('click', (e) => { if(e.target == loginModal) loginModal.style.display='none'; });
+
+// Form submit
+document.getElementById("usernameForm").addEventListener("submit", function(e){
     e.preventDefault();
     const username = document.getElementById("mcname").value;
 
     fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: `🟢 New Website Login\nMinecraft Username: **${username}**` })
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ content:`🟢 New Website Login\nMinecraft Username: **${username}**` })
     }).then(() => {
         document.getElementById("status").innerText = "✅ Username sent successfully!";
         document.getElementById("mcname").value = "";
-        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 2000);
-    }).catch(() => {
-        document.getElementById("status").innerText = "❌ Error sending username.";
-    });
+        setTimeout(()=>{ loginModal.style.display='none'; }, 2000);
+    }).catch(()=>{ document.getElementById("status").innerText="❌ Error sending username."; });
 });
 </script>
-
 </body>
 </html>
